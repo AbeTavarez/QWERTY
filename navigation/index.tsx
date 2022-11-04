@@ -3,7 +3,11 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import {
+  FontAwesome,
+  Ionicons,
+  MaterialCommunityIcons
+} from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   NavigationContainer,
@@ -18,7 +22,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
+import HomeScreen from '../screens/HomeScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import {
   RootStackParamList,
@@ -86,13 +90,23 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="Home"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={({ navigation }: RootTabScreenProps<'Home'>) => ({
           title: 'Home',
           tabBarIcon: ({ color }) => (
             <Ionicons name="md-home" color={color} size={32} />
           ),
           tabBarShowLabel: false,
+          headerRightContainerStyle: {
+            marginRight: 15
+          },
+          headerTitle: () => (
+            <Ionicons
+              name={'logo-twitter'}
+              size={30}
+              color={Colors.light.tint}
+            />
+          ),
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -100,10 +114,10 @@ function BottomTabNavigator() {
                 opacity: pressed ? 0.5 : 1
               })}
             >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
+              <MaterialCommunityIcons
+                name={'star-four-points-outline'}
+                size={30}
+                color={Colors.light.tint}
                 style={{ marginRight: 15 }}
               />
             </Pressable>
