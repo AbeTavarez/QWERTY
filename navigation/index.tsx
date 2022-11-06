@@ -30,6 +30,7 @@ import {
   RootTabScreenProps
 } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import ProfilePicture from '../components/ProfilePicture';
 
 export default function Navigation({
   colorScheme
@@ -119,6 +120,21 @@ function BottomTabNavigator() {
                 size={30}
                 color={Colors.light.tint}
                 style={{ marginRight: 15 }}
+              />
+            </Pressable>
+          ),
+          headerLeftContainerStyle: {
+            marginLeft: 15
+          },
+          headerLeft: () => (
+            <Pressable
+              style={{
+                marginLeft: 15
+              }}
+            >
+              <ProfilePicture
+                image="https://avatars.githubusercontent.com/u/39171176?v=4"
+                size={45}
               />
             </Pressable>
           )
