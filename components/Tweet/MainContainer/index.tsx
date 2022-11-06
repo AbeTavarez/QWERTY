@@ -16,7 +16,7 @@ const MainContainer = ({ tweet }: MainContainerProps) => (
       <View style={styles.tweetHeaderNames}>
         <Text style={styles.name}>{tweet.user.name}</Text>
         <Text style={styles.username}>@{tweet.user.username}</Text>
-        {/* <Text>{tweet.createdAt}</Text> */}
+        {/* <Text style={styles.createdAt}>{tweet.createdAt}</Text> */}
         <Text style={styles.createdAt}>15s</Text>
       </View>
       {/* MORE ICON  */}
