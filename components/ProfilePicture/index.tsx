@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 
 export type ProfilePictureProps = {
-  image: string;
+  image?: string;
   size?: number;
 };
 
