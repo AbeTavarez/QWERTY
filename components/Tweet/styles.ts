@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     padding: 10,
     width: '100%',
     borderBottomWidth: 0.5,
-    borderBottomColor: 'grey'
+    borderBottomColor: 'lightgrey'
   }
 });
 
