@@ -31,6 +31,7 @@ import {
 } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import ProfilePicture from '../components/ProfilePicture';
+import NewTweetScreen from '../screens/NewTweetScreen';
 
 export default function Navigation({
   colorScheme
@@ -66,6 +67,7 @@ function RootNavigator() {
         component={NotFoundScreen}
         options={{ title: 'Oops!' }}
       />
+      <Stack.Screen name="NewTweet" component={NewTweetScreen} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
