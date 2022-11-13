@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   content: {
     lineHeight: 20,
-    marginTop: 5
+    marginVertical: 5
   },
   image: {
     marginVertical: 10,
