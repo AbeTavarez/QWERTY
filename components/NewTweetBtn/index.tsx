@@ -1,10 +1,12 @@
+import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import styles from './styles';
 
 const NewTweetBtn = () => {
+  const navigation = useNavigation();
   const onPress = () => {
-    console.warn('new post');
+    navigation.navigate('NewTweet');
   };
   return (
     <TouchableOpacity
