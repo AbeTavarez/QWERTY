@@ -10,9 +10,18 @@ import { RootTabScreenProps } from '../types';
 import { EvilIcons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import ProfilePicture from '../components/ProfilePicture';
+import { useState } from 'react';
 
 function NewTweetScreen() {
-  const onPostPress = () => console.warn('hey');
+  const [tweet, setTweet] = useState('');
+  const [imageURL, setImageURL] = useState('');
+
+  const onPostPress = () => {
+    console.log(`
+    ${tweet}
+    ${imageURL}
+    `);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -29,8 +38,17 @@ function NewTweetScreen() {
           <TextInput
             placeholder="What's happening?"
             style={styles.tweetInput}
+            multiline={true}
+            numberOfLines={3}
+            value={tweet}
+            onChangeText={setTweet}
           />
-          <TextInput placeholder="What's happening?" style={styles.imageUrl} />
+          <TextInput
+            placeholder="Image Picker"
+            style={styles.imageUrl}
+            value={imageURL}
+            onChangeText={setImageURL}
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -63,8 +81,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18
   },
-  newTweetContainer: {},
-  inputsContainer: {},
-  tweetInput: {},
-  imageUrl: {}
+  newTweetContainer: {
+    flexDirection: 'row',
+    padding: 15
+  },
+  inputsContainer: {
+    marginLeft: 10
+  },
+  tweetInput: {
+    fontSize: 22,
+    height: 200,
+    maxHeight: 300
+  },
+  imageUrl: {
+    fontSize: 18
+  }
 });
