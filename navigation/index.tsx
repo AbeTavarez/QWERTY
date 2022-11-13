@@ -31,7 +31,7 @@ import {
 } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import ProfilePicture from '../components/ProfilePicture';
-import NewTweetScreen from '../screens/NewTweetScreen';
+import NewTweetScreen from '../screens/NewTweetScreen/NewTweetScreen';
 
 export default function Navigation({
   colorScheme
@@ -67,7 +67,11 @@ function RootNavigator() {
         component={NotFoundScreen}
         options={{ title: 'Oops!' }}
       />
-      <Stack.Screen name="NewTweet" component={NewTweetScreen} />
+      <Stack.Screen
+        name="NewTweet"
+        component={NewTweetScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -97,7 +101,7 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<'Home'>) => ({
           title: 'Home',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="md-home" color={color} size={32} />
+            <Ionicons name="md-home" color={color} size={22} />
           ),
           tabBarShowLabel: false,
           headerRightContainerStyle: {
@@ -106,7 +110,7 @@ function BottomTabNavigator() {
           headerTitle: () => (
             <Ionicons
               name={'logo-twitter'}
-              size={30}
+              size={22}
               color={Colors.light.tint}
             />
           ),
@@ -120,7 +124,7 @@ function BottomTabNavigator() {
               <MaterialCommunityIcons
                 name={'star-four-points-outline'}
                 size={30}
-                color={Colors.light.tint}
+                color={colorScheme === 'dark' ? '#fff' : Colors.light.tint}
                 style={{ marginRight: 15 }}
               />
             </Pressable>
@@ -148,7 +152,7 @@ function BottomTabNavigator() {
         options={{
           title: 'Tab Two',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-search" color={color} size={32} />
+            <Ionicons name="ios-search" color={color} size={22} />
           )
         }}
       />
@@ -161,7 +165,7 @@ function BottomTabNavigator() {
             <Ionicons
               name="ios-notifications-outline"
               color={color}
-              size={32}
+              size={22}
             />
           )
         }}
@@ -172,7 +176,7 @@ function BottomTabNavigator() {
         options={{
           title: 'Tab Two',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-mail" color={color} size={32} />
+            <Ionicons name="ios-mail" color={color} size={22} />
           )
         }}
       />
